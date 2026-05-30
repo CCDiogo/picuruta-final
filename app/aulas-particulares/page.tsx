@@ -21,13 +21,19 @@ export default function AulasParticularesPage(){
                     </div>
                 </div>
 
-                <div className="mt-16 grid lg:grid-cols-3 gap-6">
-                    {qrPictures.map(({src, alt, href})=> (
-                      <Link key={src} href={href} target="_blank">  
-                        <div className="relative rounded-xl flex items-center justify-center  ease-out duration-300">
-                            <Image src={src} alt={alt} width={200} height={200} className="object-cover rounded-xl" loading="eager" />
+              <div className="mt-16 grid lg:grid-cols-3 gap-14 lg:gap-6">
+                    {qrPictures.map(({href, name, qr, src})=> (
+                        <div key={name} className="flex flex-col gap-y-4 items-center">
+                            <Link href={href} target="_blank">
+                                <Image src={qr} alt={name} width={200} height={200} className="rounded-xl" loading="eager" />
+                            </Link>
+                            <Link href={href} target="_blank" className="">
+                                <>
+                                    <Image src={src} alt={name} width={200} height={200} className="rounded-xl object-cover" loading="eager" />
+                                    <p className="mt-2 text-center text-xs text-muted-foreground">{name}</p>
+                                </>
+                            </Link>
                         </div>
-                    </Link>
                     ))}
                 </div>
             </div>

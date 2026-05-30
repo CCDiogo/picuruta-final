@@ -4,6 +4,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { Ghost, Menu } from "lucide-react";
+import { navLinks } from "@/constants/data";
 
 const leftLinks = [
   { href: "/historia-picuruta", label: "Picuruta" },
@@ -39,10 +43,10 @@ export function Navbar() {
       </Link>
 
       {/* NAVBAR */}
-      <div className="mx-auto flex h-full max-w-7xl items-center">
+      <div className="mx-auto flex h-full max-w-7xl items-center relative mx-auto">
 
         {/* LEFT SIDE */}
-        <div className="flex flex-1 justify-end gap-10">
+        <div className="lg:flex flex-1 lg:justify-end gap-10 hidden">
           {leftLinks.map((link) => {
             const isActive = pathname === link.href
 
@@ -63,7 +67,7 @@ export function Navbar() {
         <div className="w-30" />
 
         {/* RIGHT SIDE */}
-        <div className="flex flex-1 justify-start gap-10">
+        <div className="lg:flex flex-1 lg:justify-start gap-10 hidden">
           {rightLinks.map((link) => {
             const isActive = pathname === link.href
 
@@ -80,7 +84,28 @@ export function Navbar() {
             )
           })}
         </div>
-
+        <nav className="lg:hidden absolute right-2">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant='ghost'> 
+                <Menu className="size-6>" /> 
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="bg-[linear-gradient(145deg,#f6bc48_50%,#75cedf_50%)] font-bold ">
+              <SheetHeader>
+                <SheetTitle className='sr-only'>Titulos</SheetTitle>
+                <SheetDescription className='sr-only'>Descrição</SheetDescription>
+              </SheetHeader>
+              {navLinks.map(({href , label}) => (
+                   <nav className="flex flex-col p-6">
+                  <Link href={href} key={href}>
+                    {label}
+                  </Link>
+                </nav>
+              ))}
+            </SheetContent>
+          </Sheet>
+        </nav>
       </div>
     </header>
   );

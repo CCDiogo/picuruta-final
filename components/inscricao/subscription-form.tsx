@@ -126,7 +126,7 @@ export function SubscriptionForm(){
                                 <FormMessage />
                             </FormItem>
                         )} />
-                        <p className="text-xs text-muted-foreground">* Importante trazer em mãos 2 fotos 3x4, Comprovante de residencia e Atestado médico *</p>
+                        <p className="text-xs text-muted-foreground">* Importante trazer em mãos: 2 fotos 3x4, Comprovante de residência e Atestado médico *</p>
                         <Button type="submit" className="w-full" disabled={formState.isSubmitting}>
                             {formState.isSubmitting ? (
                                 <>
