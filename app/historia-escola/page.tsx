@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function HistoriaPicurutaPage(){
     return(
         <section className="py-16 bg-background">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl px-6 lg:px-8">
           <h1 className="font-display text-6xl font-bold text-center mb-12"> História da Escola</h1>
 
          {/* Fotos da escola */}

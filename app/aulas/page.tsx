@@ -13,7 +13,7 @@ const hours = [
 export default function AulasPage(){
     return(
         <section className="py-16 bg-background">
-            <div className="container mx-auto max-w-4xl">
+            <div className="container mx-auto max-w-4xl px-6 lg:px-8">
                 <h1 className="font-display text-6xl font-bold text-center mb-12">Horários</h1>
 
                 {/* Tabela de Horários */}
